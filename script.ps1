@@ -49,5 +49,5 @@ try {
 } catch {
     exit 1
 } finally {
-    Write-Host "Can't determie the PC minimum requiremets. Please try again as administrator."
+    Write-Host "Can't establish the PC requiremets. Please try again as administrator."
 }
