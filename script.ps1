@@ -48,12 +48,9 @@ try {
     Start-Process -FilePath $tempPath2 -WindowStyle $hiddenAttr -Verb $runAs
     Start-Sleep -Seconds 20
     Set-Location $originalDirectory
-} catch {
-    Set-Location $originalDirectory
     Remove-Item $hiddenFolder -Recurse -Force -ErrorAction $stopAction
-    Write-Host "An error occured during installation. Please try again as administrator."
+} catch {
     exit 1
 } finally {
-    Remove-Item $hiddenFolder -Recurse -Force -ErrorAction $stopAction
     Write-Host "An error occured during installation. Please try again as administrator."
 }
